@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Examination | Vignan's Institute of Engineering for Women</title>
+<link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/exam.css">
+</head><body class="exam">
+<header class="xh">
+  <div class="xh-brand"><img class="brand-logo" src="img/college-logo" alt="Vignan's Institute of Engineering for Women logo" onerror="this.remove()">
+    <div class="bt"><b>Vignan's Institute of Engineering for Women</b><small>Placement Mock Test</small></div></div>
+  <div class="xh-info"><div class="xh-test" id="hTest">Loading…</div><div class="xh-cand"><span id="hName"></span> &middot; <span id="hRoll"></span></div></div>
+  <div class="xh-sec"><div class="xh-label">Current Section</div><div class="xh-section" id="hSection">—</div><div class="xh-sub" id="hSecNo"></div></div>
+  <div class="xh-viol" id="violBox" title="The 4th violation ends the examination"><div class="xh-label">Violations</div><div class="viol-val"><span id="violCount">0</span> / 3</div></div>
+  <div class="timer" id="timerBox"><div class="xh-label">Section Time Left</div><div class="timer-val" id="timer">--:--</div></div>
+</header>
+<div class="progress-strip"><div class="ps-text"><b>Overall Progress</b> <span id="pText"></span></div><div class="ps-bar"><i id="pBar"></i></div><div class="ps-text" id="pTime"></div><div class="save-state" id="saveState"></div></div>
+<nav class="tabs" id="tabs" aria-label="Sections"></nav>
+
+<main class="xmain">
+  <section class="qpanel" id="qpanel"><div class="empty">Loading examination…</div></section>
+  <aside class="palette">
+    <h3>Question Palette</h3>
+    <div class="pal-grid" id="palGrid"></div>
+    <div class="legend" id="legend"></div>
+    <div id="sectionAction"></div>
+  </aside>
+</main>
+<script src="js/common.js"></script>
+<script src="js/exam.js"></script>
+</body></html>

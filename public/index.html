@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Registration | Vignan's Institute of Engineering for Women</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="top"></div>
+<main class="container">
+  <div class="reg-wrap">
+    <div class="reg-card">
+      <div class="rh"><h1>Placement Mock Test</h1><p class="muted">Register once to access your scheduled mock tests.</p></div>
+      <div class="tabs-s" role="tablist">
+        <button id="tabReg" class="on" role="tab" aria-selected="true" type="button">New Registration</button>
+        <button id="tabCont" role="tab" aria-selected="false" type="button">Already Registered</button>
+      </div>
+
+      <form id="regForm" class="rb" novalidate>
+        <div id="regMsg"></div>
+        <div class="field"><label for="studentName">Student Name</label><input id="studentName" name="studentName" autocomplete="name" maxlength="80"><div class="err"></div></div>
+        <div class="field"><label for="rollNumber">Roll Number</label><input id="rollNumber" name="rollNumber" maxlength="15" placeholder="e.g. 22A81A05XX" style="text-transform:uppercase"><div class="err"></div></div>
+        <div class="field"><label for="department">Department</label>
+          <select id="department" name="department"><option value="">Select department</option>
+            <option>CSE</option><option>IT</option><option>ECE</option><option>EEE</option><option>MECH</option><option>CIVIL</option><option>AI&amp;DS</option><option>CSM</option><option>CSD</option><option>Other</option></select><div class="err"></div></div>
+        <div class="field"><label for="yearOfStudy">Year of Study</label>
+          <select id="yearOfStudy" name="yearOfStudy"><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select><div class="err"></div></div>
+        <button class="btn lg block" id="regBtn">Register</button>
+      </form>
+
+      <form id="contForm" class="rb hidden" novalidate>
+        <div id="contMsg"></div>
+        <div class="field"><label for="contRoll">Roll Number</label><input id="contRoll" maxlength="15" placeholder="e.g. 22A81A05XX" style="text-transform:uppercase"></div>
+        <button class="btn lg block">Open Dashboard</button>
+        <p class="muted small" style="margin:12px 0 0">A roll number is not a password. Anyone who knows it can open this dashboard, so please do not share it.</p>
+      </form>
+      <div class="reg-foot"><span>All fields are mandatory.</span><a href="admin.html">Administrator login</a></div>
+    </div>
+  </div>
+</main>
+<script src="js/common.js"></script>
+<script>document.getElementById('top').innerHTML = siteHeader({ href: 'index.html', sub: 'Placement Mock Test Portal' });</script>
+<script src="js/register.js"></script>
+</body>
+</html>

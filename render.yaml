@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: placement-mocktest
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: TEST_TIMEZONE
+        value: Asia/Kolkata
+      - key: MONGO_URI
+        sync: false        # paste your Atlas connection string in the Render dashboard
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_SECRET
+        generateValue: true

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administration | Vignan's Institute of Engineering for Women</title>
+<link rel="stylesheet" href="css/styles.css">
+</head><body>
+<div id="top"></div>
+<div class="container">
+  <div id="loginView" class="login-box"><div class="panel">
+    <div class="ph"><h2>Administrator Sign In</h2></div>
+    <div class="pb"><div id="loginMsg"></div>
+      <form id="loginForm"><div class="field"><label for="u">Username</label><input id="u" autocomplete="username"></div>
+        <div class="field"><label for="p">Password</label><input id="p" type="password" autocomplete="current-password"></div>
+        <button class="btn block">Sign In</button></form>
+      <p class="muted small" style="margin:12px 0 0">Administrator access is separate from student registration.</p></div></div></div>
+
+  <div id="adminView" class="shell hidden">
+    <nav class="side" id="side" aria-label="Administration menu"></nav>
+    <main class="main" id="pane"></main>
+  </div>
+</div>
+<div id="foot"></div>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body></html>
