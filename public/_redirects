@@ -1,0 +1,2 @@
+/api/*  https://placement-mock.onrender.com/api/:splat  200
+/img/college-logo  https://placement-mock.onrender.com/img/college-logo  200
