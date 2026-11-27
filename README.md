@@ -8,7 +8,7 @@ Converted from the original EAPCET mock-test project.
 cd backend
 npm install
 cp .env.example .env     # set MONGO_URI (Atlas), ADMIN_USERNAME, ADMIN_PASSWORD; never commit .env
-npm run seed             # creates 5 sample tests (draft/inactive, different future dates). Safe to re-run
+npm run seed             # creates the sample tests, including the mockTests folder. Safe to re-run
 npm start                # http://localhost:5000
 ```
 Pages: `/` register · `/dashboard.html` · `/instructions.html` · `/exam.html` · `/result.html` · `/admin.html`
@@ -45,7 +45,7 @@ Each test owns its sections (name, number of questions, marks per question, tota
 For each new attempt, questions are randomly selected from each enabled section's bank (when it contains more than configured) and shuffled within that section. Section order and answer-option order stay as configured; the resulting paper is frozen for the attempt, including when a student resumes.
 
 ## Sample tests (seed)
-`npm run seed` creates *Placement Aptitude Mock Test 1 and 2*, *Technical Assessment Mock Test 1 and 2* and *Company Placement Mock Test 1* (7 sections, 60 questions, 75 marks each, original questions with difficulty and type). They are marked `isSeeded`, created inactive on different dates (`SEED_FIRST_OFFSET`, `SEED_GAP_DAYS`), and shown as "Sample" in the admin list. Re-running never overwrites or duplicates anything and never touches tests not created by the seed; `npm run seed -- --force` rebuilds only seeded tests nobody has attempted. Open a test in admin, review/edit it, then set it Active.
+`npm run seed` runs the main seed and the three scripts in `backend/seed/mockTests` (*Placement Mock Test 1–3*). Run `npm run seed:mocktests` to seed only those three tests. The mock tests are scheduled for today, tomorrow and two days from today by default, and are active once their questions are loaded. Re-running does not duplicate tests that already exist. The main seed creates *Placement Aptitude Mock Test 1 and 2*, *Technical Assessment Mock Test 1 and 2* and *Company Placement Mock Test 1* (7 sections, 60 questions, 75 marks each, original questions with difficulty and type); `npm run seed -- --force` rebuilds only seeded tests nobody has attempted. Open a test in admin to review/edit it.
 
 ## Capacity (600 students at once)
 Design: attempt secrets and the frozen paper are cached in memory (mutable state is always in the database), an answer save is a single conditional write, timer polls are one read (client polls every 20 s, the countdown runs locally), the auto-submit sweeper uses an indexed query, dashboards use a 5-second shared cache, responses are gzip-compressed, and the MongoDB pool is `DB_POOL_SIZE` (default 50). **Use a dedicated MongoDB Atlas cluster (M10 or larger) for an exam of this size; the free shared tier throttles operations and is not suitable.** Run `npm run loadtest` (BASE, STUDENTS, THINK_MS, POLL_MS, MAX_Q_PER_SECTION) against a staging copy before exam day.
